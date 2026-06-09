@@ -8,30 +8,31 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteSuccess) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Note added successfully')),
-              );
-              Navigator.pop(context);
-            } else if (state is AddNoteFailure) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
-            }
-          },
-          builder: (context, state) {
-            if (state is AddNoteLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return const AddNoteForm();
-          },
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: SingleChildScrollView(
+          child: BlocConsumer<AddNoteCubit, AddNoteState>(
+            listener: (context, state) {
+              if (state is AddNoteSuccess) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Note added successfully')),
+                );
+                Navigator.pop(context);
+              } else if (state is AddNoteFailure) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+              }
+            },
+            builder: (context, state) {
+              if (state is AddNoteLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              return const AddNoteForm();
+            },
+          ),
         ),
       ),
     );
