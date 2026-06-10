@@ -34,7 +34,7 @@ class NotesListView extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const NoteItem(color: Color(0xffffcb7a)),
+                  child:  NoteItem(note: notes[index],),
                 ),
               );
             },
