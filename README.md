@@ -14,9 +14,7 @@ A comprehensive note-taking application developed with Flutter, designed to prov
 
 ## Demo
 
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-
-_Or view the demo on [GitHub](link-to-your-video-file)_
+https://github.com/user-attachments/assets/398ad662-842e-4ab2-9b7c-2b0a0a2a4e47
 
 ## Technology Stack
 
