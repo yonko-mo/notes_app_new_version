@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/edit_note_view.dart';
 import 'package:notes_app/widgets/note_item.dart';
 
 class NotesListView extends StatelessWidget {
@@ -23,19 +22,7 @@ class NotesListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const EditNoteView();
-                        },
-                      ),
-                    );
-                  },
-                  child:  NoteItem(note: notes[index],),
-                ),
+                child: NoteItem(note: notes[index]),
               );
             },
           ),
